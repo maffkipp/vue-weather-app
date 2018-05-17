@@ -7,7 +7,7 @@
         <div v-if="searched">
             <h1>{{ weather.cityName }}</h1>
             <h2>
-                {{ weather.temp }} 
+                {{ weather.temp }}&deg;&ensp;
                 <button v-on:click="changeTempUnit">{{ tempUnit }}</button>
             </h2>
             <h3>{{ weather.main }}</h3>
