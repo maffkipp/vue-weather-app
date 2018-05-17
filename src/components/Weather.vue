@@ -5,7 +5,7 @@
             <button type="submit">Search</button>
         </form>
         <h1>{{ weather.cityName }}</h1>
-        <h2>{{ weather.temp }}</h2>
+        <h2>{{ weather.temp }} {{ tempUnit }}</h2>
         <h3>{{ weather.main }}</h3>
         <p>{{ weather.description }}</p>
     </div>
@@ -26,7 +26,8 @@ export default {
                 temp: '',
                 main: '',
                 description: ''
-            }
+            },
+            tempUnit: ''
         }
     },
     methods: {
@@ -45,6 +46,7 @@ export default {
         },
 
         setInitialTemp(temp) {
+            this.tempUnit = 'F';
             return (Math.round((temp * (9/5) - 459.67) * 100) / 100);
         }
     }
