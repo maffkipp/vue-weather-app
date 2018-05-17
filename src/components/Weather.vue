@@ -6,7 +6,10 @@
         </form>
         <div v-if="searched">
             <h1>{{ weather.cityName }}</h1>
-            <h2>{{ weather.temp }} {{ tempUnit }}</h2>
+            <h2>
+                {{ weather.temp }} 
+                <button v-on:click="changeTempUnit">{{ tempUnit }}</button>
+            </h2>
             <h3>{{ weather.main }}</h3>
             <p>{{ weather.description }}</p>
         </div>
@@ -38,6 +41,7 @@ export default {
     },
     methods: {
 
+        // pulls in weather data from form, makes axios call, and updates data
         getWeatherData(e) {
             e.preventDefault();
             let vm = this;
@@ -52,9 +56,27 @@ export default {
             .catch(error => console.err(error))
         },
 
+        // converts initial temperature to farenheit
         setInitialTemp(temp) {
             this.tempUnit = 'F';
-            return (Math.round((temp * (9/5) - 459.67) * 100) / 100);
+            let newTemp = this.roundTemp(temp * (9/5) - 459.67);
+            return newTemp;
+        },
+
+        // converts temperature between farenheit and celsius
+        changeTempUnit() {
+            if (this.tempUnit === 'F') {
+                this.tempUnit = 'C';
+                this.weather.temp = this.roundTemp((this.weather.temp - 32) * (5/9));
+            } else {
+                this.tempUnit = 'F';
+                this.weather.temp = this.roundTemp(this.weather.temp * (9/5) + 32);
+            }
+        },
+
+        // rounds a number to the nearest 100th
+        roundTemp(temp) {
+            return Math.round(temp * 100) / 100;
         }
     }
 };
