@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
+    <canvas></canvas>
     <Weather/>
   </div>
 </template>
@@ -8,6 +8,7 @@
 <script>
 import HelloWorld from './components/HelloWorld';
 import Weather from './components/Weather';
+import './canvas.js';
 
 export default {
   name: 'App',
