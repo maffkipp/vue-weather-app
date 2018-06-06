@@ -8,7 +8,7 @@
 <script>
 import HelloWorld from './components/HelloWorld';
 import Weather from './components/Weather';
-import './canvas.js';
+import './canvas';
 
 export default {
   name: 'App',
