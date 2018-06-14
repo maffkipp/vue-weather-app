@@ -35,7 +35,7 @@ function Circle(x, y, dx, dy, radius) {
 
         // updates x and y coordinates
         this.x += this.dx;
-        this.y += this.y;
+        this.y += this.dy;
 
         // draws updated shape
         this.draw();
@@ -46,8 +46,8 @@ function Circle(x, y, dx, dy, radius) {
 let circleArray = [];
 
 // create randomized circles in circleArray
-for (let i=0; i<10; i++) {
-    let radius = Math.random() * 3 + 1;
+for (let i=0; i<8; i++) {
+    let radius = Math.random() * 30 + 100;
     let x = Math.random() * (window.innerWidth - radius * 2) + radius;
     let y = Math.random() * (window.innerHeight - radius * 2) + radius;
     let dx = (Math.random() - 0.5) * 3;
