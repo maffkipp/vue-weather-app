@@ -5,6 +5,8 @@ import App from './App';
 
 import './canvas';
 
+require('./canvas.css');
+
 Vue.config.productionTip = false;
 
 /* eslint-disable no-new */
