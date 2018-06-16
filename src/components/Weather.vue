@@ -1,14 +1,14 @@
 <template>
-    <div>
+    <div id="weather-component">
         <form v-on:submit="getWeatherData" action="input">
-            <input v-model="citySearch" type="text" name="location-search">
-            <button type="submit">Search</button>
+            <input v-model="citySearch" type="text" name="location-search" id="search-input">
+            <button id="search-button" class="button" type="submit">Search</button>
         </form>
         <div v-if="searched">
             <h1>{{ weather.cityName }}</h1>
             <h2>
                 {{ weather.temp }}&deg;&ensp;
-                <button v-on:click="changeTempUnit">{{ tempUnit }}</button>
+                <button v-on:click="changeTempUnit" class="button">{{ tempUnit }}</button>
             </h2>
             <h3>{{ weather.main }}</h3>
             <p>{{ weather.description }}</p>
@@ -83,4 +83,69 @@ export default {
 </script>
 
 <style scoped>
+#weather-component {
+    background-color: rgba(255, 255, 255, 0.5);
+    width: 50%;
+    margin: 0 auto;
+    padding: 50px 0;
+    border-radius: 2px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+#search-input {
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+    border-bottom: 3px solid #35495E;
+    caret-color: #35495E;
+    font-size: 20px;
+    color: #35495E;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#search-input:focus {
+    outline: none;
+}
+
+#search-button {
+    display: block;
+    margin: 10px auto;
+    width: 25%;  
+}
+
+.button {
+    font-size: 15px;
+    background-color: rgba(0, 0, 0, 0);
+    border: 2px solid #35495E;
+    border-radius: 2px;
+    transition: color 300ms, background-color 300ms;
+    padding: 5px 10px;
+}
+
+.button:hover {
+    color: white;
+    background-color: #35495E;
+}
+
+.button:focus {
+    outline: none;
+}
+
+@media only screen and (max-width: 800px) {
+    #weather-component {
+        width: 90%;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    #weather-component {
+        width: 100%;
+    }
+    #search-button {
+        width: 90%;
+    }
+    #search-input {
+        width: 90%;
+    }
+}
 </style>

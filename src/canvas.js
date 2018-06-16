@@ -17,7 +17,7 @@ function Circle(x, y, dx, dy, radius) {
         c.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
         c.fillStyle = 'white';
         c.shadowColor = 'white';
-        c.shadowBlur = 10;
+        c.shadowBlur = 20;
         c.fill();
     }
 
@@ -45,8 +45,8 @@ function Circle(x, y, dx, dy, radius) {
 let circleArray = [];
 
 // create randomized circles in circleArray
-for (let i=0; i<5; i++) {
-    let radius = Math.random() * 150 + 50;
+for (let i=0; i<8; i++) {
+    let radius = Math.random() * 120 + 50;
     let x = Math.random() * (window.innerWidth - radius * 2) + radius;
     let y = Math.random() * (window.innerHeight - radius * 2) + radius;
     let dx = (Math.random() - 0.5) * 2;

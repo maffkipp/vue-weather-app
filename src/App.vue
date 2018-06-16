@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <h1 id="page-header">WeatherVue</h1>
     <Weather/>
   </div>
 </template>
@@ -18,18 +19,23 @@ export default {
 </script>
 
 <style>
+#page-header {
+  font-size: 50px;
+}
+
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: white;
-  margin: 100px auto 0;
+  color: #35495E;
   z-index: 1;
   position: relative;
-  padding: 100px;
-  background-color: rgba(0, 0, 0, 0.5);
-  border-radius: 4px;
-  width: 50%;
+}
+
+@media only screen and (max-width: 600px) {
+  #page-header {
+    font-size: 40px;
+  }
 }
 </style>
