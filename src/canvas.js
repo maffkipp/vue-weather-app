@@ -1,9 +1,6 @@
 /* eslint-disable */
 const canvas = document.querySelector('canvas');
 
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
-
 const c = canvas.getContext('2d');
 
 // defines the circle class
@@ -61,6 +58,8 @@ for (let i=0; i<5; i++) {
 function animate() {
     requestAnimationFrame(animate);
     c.clearRect(0, 0, window.innerWidth, window.innerHeight);
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
     circleArray.forEach(circle => {
         circle.update();
     });
